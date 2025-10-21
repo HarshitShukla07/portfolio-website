@@ -1,65 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>t</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Harshit Shukla | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 </head>
 <body>
-   <nav class="navbar">
+  <nav class="navbar">
     <a href="#home" class="logo">Portfolio</a>
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h1>Full-Stack Developer</h1>
-            <p>Building modern and responsive web applications.</p>
-            <p class="highlight">Specializing in Full Stack Development with Django</p>
-            <a href="#contact" class="cta-button">Let's Connect</a>
-        </div>
-        <div class="hero-image">
-            <img src="siyaram.jpg" alt="Profile" class="profile-img">
-        </div>
-    </section>
-    <section id="skills" class="skills">
-        <h2>Technical Expertise</h2>
-        <div class="skills-grid">
-         <div class="skill-card">
-              <i class="fa-solid fa-code"></i>
+    <div class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><button id="mode-toggle" class="mode-toggle"><i class="fas fa-moon"></i></button></li>
+    </ul>
+  </nav>
+
+  <section id="home" class="hero">
+    <div class="hero-content" data-aos="fade-right">
+      <h1>Harshit Shukla</h1>
+      <h2>Full-Stack Developer</h2>
+      <p>Building modern and responsive web applications.</p>
+      <p class="highlight">Specializing in Full Stack Development with Django</p>
+      <a href="https://www.linkedin.com/in/harshit-shukla-6055b532a" class="cta-button">Let's Connect</a>
+    </div>
+    <div class="hero-image" data-aos="fade-left">
+      <img src="siyaram.jpg" alt="Profile" class="profile-img" />
+    </div>
+  </section>
+
+  <section id="skills" class="skills">
+    <h2>Technical Expertise</h2>
+    <div class="skills-grid">
+      <div class="skill-card" data-aos="zoom-in">
+        <i class="fa-solid fa-code"></i>
         <h3>Frontend Development</h3>
-        <p>React,Vite,HTML5,CSS3,JavaScript</p>
-        </div>
-       <div class="skill-card">
+        <p>React, Vite, HTML5, CSS3, JavaScript</p>
+      </div>
+      <div class="skill-card" data-aos="zoom-in" data-aos-delay="100">
         <i class="fa-solid fa-server"></i>
         <h3>Backend Development</h3>
-        <p>Django,Node.js,Express.js,RESTful APIs</p>
-        </div>
-       <div class="skill-card">
+        <p>Django, Node.js, Express.js, REST APIs</p>
+      </div>
+      <div class="skill-card" data-aos="zoom-in" data-aos-delay="200">
         <i class="fa-solid fa-cloud"></i>
         <h3>UI/UX Design</h3>
-        <p>Figma,Adobe XD,Prototyping,User Testing</p>
-         </div>
-</div>
-    </section>
+        <p>Figma, Adobe XD, Prototyping</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
+    <h2>My Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card" data-aos="fade-up">
+        <h3>Project One</h3>
+        <p>React + Django based blog app with authentication.</p>
+        <a href="#" class="btn">Live Demo</a>
+        <a href="#" class="btn">GitHub</a>
+      </div>
+      <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+        <h3>Project Two</h3>
+        <p>E-commerce platform with payment integration.</p>
+        <a href="#" class="btn">Live Demo</a>
+        <a href="#" class="btn">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+  <h2>Contact Me</h2>
+  <form id="contact-form" onsubmit="handleSubmit(event)">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Your Message" required></textarea>
+    <button type="submit" class="cta-button">Send Message</button>
+  </form>
+  <p id="response-message" style="display:none; color: green; margin-top: 10px;">Message sent! Thank you.</p>
+</section>
+
+<script>
+  function handleSubmit(event) {
+    event.preventDefault(); 
+    
+
+   
+    const response = document.getElementById('response-message');
+    response.style.display = 'block';
+
+   
+    event.target.reset();
+  }
+</script>
+
 
   <footer>
-    <p>&copy; 2024 CyberDev. All rights reserved.</p>
+    <p>&copy; 2024 Harshit Shukla. All rights reserved.</p>
     <div class="social-links">
-        <a href="#"><i class="fab fa-facebook"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-whatsapp"></i></a>
-        <a href="#"><i class="fab fa-github"></i></a>
-        </div>
-  </footer>  
-  <script src="script.js"></script>
+      <a href="https://www.linkedin.com/in/harshit-shukla-6055b532a" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="https://wa.me/918840638737" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://github.com/HarshitShukla07" target="_blank"><i class="fab fa-github"></i></a>
+     <a href="https://leetcode.com/u/_harshit96/" target="_blank" class="leetcode-link">
+  <img src="leet..png" alt="LeetCode" />
+</a>
+
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init()
+
+    document.getElementById('mode-toggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode')
+      const icon = document.body.classList.contains('dark-mode') ? 'fa-sun' : 'fa-moon'
+      document.getElementById('mode-toggle').innerHTML = `<i class="fas ${icon}"></i>`
+    })
+
+    document.getElementById('menu-toggle').addEventListener('click', () => {
+      document.getElementById('nav-links').classList.toggle('active')
+    })
+  </script>
 </body>
 </html>
+
